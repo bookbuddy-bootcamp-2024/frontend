@@ -15,7 +15,7 @@ function Books() {
 
       return (
     <div>
-        <BookList/>
+        <BookList bookData={bookData}/>
     </div>
       
   );

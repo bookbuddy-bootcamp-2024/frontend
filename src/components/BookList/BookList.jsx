@@ -1,16 +1,14 @@
 import React from 'react'
+import BookCard from '../BookCard/BookCard';
 
 function BookList({bookData}) {
   return (
     <div>
         {bookData.map((book) => (
-        <div key={book.id}>
-            <h3>{book.title}</h3>
-            <img src={book.coverimage} alt={book.title}/>
-        </div>
+        <BookCard key={book.id} book ={book}/>
 ))}
     </div>
   );
 }
 
-export default BookList
+export default BookList;
