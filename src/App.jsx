@@ -13,6 +13,7 @@ function App() {
   return (
     <>
       <h1><img id='logo-image' src={bookLogo}/>Library App</h1>
+
       <Navigations/>
 
      <Routes>
