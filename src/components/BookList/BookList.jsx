@@ -3,7 +3,7 @@ import BookCard from '../BookCard/BookCard';
 
 function BookList({bookData}) {
   return (
-    <div>
+    <div className='books-container'>
         {bookData.map((book) => (
         <BookCard key={book.id} book ={book}/>
 ))}

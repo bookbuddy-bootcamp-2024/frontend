@@ -7,6 +7,7 @@ import Account from './components/Account';
 import Register from './components/Register';
 import Navigations from './components/Navigations';
 import SingleBook from './components/SingleBook';
+import "../styles/main.scss";
 
 function App() {
   const [token, setToken] = useState(null)
