@@ -16,7 +16,7 @@ function SingleBook() {
     }, []);
 
   return (
-    <div>
+    <div className='single-book-container'>
         <h2>{book?.title}</h2>
         <p>{book?.author}</p>
         <img src={book?.coverimage} alt={'Cover image for ${book?.title} by ${book?.author}'}/>
