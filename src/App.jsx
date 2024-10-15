@@ -10,7 +10,7 @@ import SingleBook from './components/SingleBook';
 import "../styles/main.scss";
 
 function App() {
-  const [token, setToken] = useState(null)
+  const [token, setToken] = useState(null);
 
   useEffect(()=>{
     const localToken = localStorage.getItem("token");
@@ -23,13 +23,13 @@ function App() {
       <h1><img id='logo-image' src={bookLogo}/>Library App
       </h1>
       
-      <Navigations/>
+      <Navigations token={token} setToken={setToken}/>
 
      <Routes>
       <Route path="/" element={<Books/>}/>
       <Route path="/me" element={<Account/>}/>
-      <Route path="/login" element={<Login/>}/>
-      <Route path="/register" element={<Register/>}/>
+      <Route path="/login" element={<Login token={token} setToken={setToken}/>}/>
+      <Route path="/register" element={<Register token={token} setToken={setToken}/>}/>
       <Route path="/books/:bookid" element={<SingleBook/>}/>
       <Route path="*" element={<Books/>}/>
      </Routes>
