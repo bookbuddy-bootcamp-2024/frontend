@@ -1,7 +1,9 @@
 import React, {useState} from 'react'
+import {useNavigate} from "react-router-dom";
 import axios from 'axios';
 
 function Register() {
+  const navigate = useNavigate();
   const [newUser, setNewUser] = useState({});
   const [token, setToken] = useState(null);
   const handleInputChange = (e)=>{
@@ -13,7 +15,11 @@ function Register() {
       const data = await axios.post(
     `${import.meta.env.VITE_API_BASE_URL}/api/users/register`, newUser);
     console.log(data);
-    setToken(data.data.token);
+    if(data.data.token){
+      localStorage.setItem("token", data.data.token);
+      setToken(data.data.token);
+      navigate("/me");
+    }
   } catch (err) {
     console.log(err);
   }
