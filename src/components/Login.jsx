@@ -30,6 +30,10 @@ function Login({token, setToken}) {
   };
 
   console.log(loginData);
+
+  if(token) {
+    navigate("/")
+  }
   return (
     <div className='register-container'>
       <h2>Login</h2>
@@ -48,4 +52,4 @@ function Login({token, setToken}) {
   );
 }
 
-export default Login
+export default Login;
