@@ -2,9 +2,8 @@ import React, {useState} from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
-function Login() {
+function Login({token, setToken}) {
   const navigate = useNavigate();
-  const [token, setToken] = useState(null);
   const[loginData, setLoginData] = useState({});
 
   const handleUserInput = (e) => {
@@ -31,6 +30,10 @@ function Login() {
   };
 
   console.log(loginData);
+
+  if(token) {
+    navigate("/")
+  }
   return (
     <div className='register-container'>
       <h2>Login</h2>
@@ -49,4 +52,4 @@ function Login() {
   );
 }
 
-export default Login
+export default Login;
