@@ -10,8 +10,8 @@ function SingleBook({token}) {
     useEffect(()=>{
         axios(`${import.meta.env.VITE_API_BASE_URL}/api/books/${bookid}`)
         .then((data)=> {
-            console.log(data.data.book);
-            setBook(data.data.book);
+            console.log(data.data);
+            setBook(data.data);
         })
         .catch((err)=> console.log(err));
     }, []);

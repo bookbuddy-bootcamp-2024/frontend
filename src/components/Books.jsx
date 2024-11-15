@@ -8,8 +8,8 @@ function Books() {
   useEffect(() => {
     axios(`${import.meta.env.VITE_API_BASE_URL}/api/books`)
       .then((data) => {
-        console.log(data.data.books);
-        setBookData(data.data.books);
+        console.log(data.data);
+        setBookData(data.data);
       })
       .catch((err) => console.log(err));
   }, []);
