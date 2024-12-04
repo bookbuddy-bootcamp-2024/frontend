@@ -4,14 +4,14 @@ import axios from 'axios';
 
 function SingleBook({token}) {
     const navigate = useNavigate();
-    const {bookid} = useParams();
+    const {id} = useParams();
     const [book, setBook] = useState(null);
 
     useEffect(()=>{
-        axios(`${import.meta.env.VITE_API_BASE_URL}/api/books/${bookid}`)
+        axios(`${import.meta.env.VITE_API_BASE_URL}/api/books/${id}`)
         .then((data)=> {
             console.log(data.data);
-            setBook(data.data);
+            setBook(data.data.book);
         })
         .catch((err)=> console.log(err));
     }, []);

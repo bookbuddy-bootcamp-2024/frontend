@@ -20,17 +20,18 @@ function App() {
   }, [])
   return (
     <>
-      <h1><img id='logo-image' src={bookLogo}/>Library App
+      <h1><img id='logo-image' src={bookLogo}/>
+      Book Buddy
       </h1>
       
       <Navigations token={token} setToken={setToken}/>
 
      <Routes>
       <Route path="/" element={<Books/>}/>
-      <Route path="/me" element={<Account/>}/>
+      <Route path="/account" element={<Account/>}/>
       <Route path="/login" element={<Login token={token} setToken={setToken}/>}/>
       <Route path="/register" element={<Register token={token} setToken={setToken}/>}/>
-      <Route path="/books/:bookid" element={<SingleBook token={token}/>}/>
+      <Route path="/book/:bookid" element={<SingleBook token={token}/>}/>
       <Route path="*" element={<Books/>}/>
      </Routes>
     </>

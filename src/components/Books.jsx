@@ -3,20 +3,19 @@ import BookList from "./BookList/BookList";
 import axios from "axios";
 
 function Books() {
-  const [bookData, setBookData] = useState([]);
+  const [books, setBooks] = useState([]);
 
   useEffect(() => {
     axios(`${import.meta.env.VITE_API_BASE_URL}/api/books`)
       .then((data) => {
-        console.log(data.data);
-        setBookData(data.data);
+        setBooks(data.data.books);
       })
       .catch((err) => console.log(err));
   }, []);
 
   return (
     <div>
-      <BookList bookData={bookData} />
+      <BookList books={books}/>
     </div>
   );
 }
