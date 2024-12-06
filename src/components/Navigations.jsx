@@ -13,7 +13,7 @@ function Navigations({token, setToken}) {
         <Link to="/">See All Books</Link>
         {token? (
           <>
-          <Link to="/me">Account</Link> 
+          <Link to="/account">My Account</Link> 
           <button onClick={handleLogout}>Logout</button>
           </>): (
           <Link to="/login">Login</Link>

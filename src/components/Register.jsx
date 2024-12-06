@@ -18,7 +18,7 @@ function Register({token, setToken}) {
     if(data.data.token){
       localStorage.setItem("token", data.data.token);
       setToken(data.data.token);
-      navigate("/me");
+      navigate("/account");
     }
   } catch (err) {
     console.log(err);

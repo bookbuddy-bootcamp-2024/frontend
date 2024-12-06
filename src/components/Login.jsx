@@ -22,7 +22,7 @@ function Login({token, setToken}) {
       if(data.data.token) {
         localStorage.setItem("token", data.data.token);
         setToken(data.data.token);
-        navigate("/me");
+        navigate("/account");
       }
 
     }catch(err){
