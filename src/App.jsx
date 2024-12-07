@@ -7,6 +7,7 @@ import Account from './components/Account';
 import Register from './components/Register';
 import Navigations from './components/Navigations';
 import SingleBook from './components/SingleBook';
+import ProtectedRoute from './components/ProtectedRoute';
 import "../styles/main.scss";
 
 function App() {
@@ -28,10 +29,12 @@ function App() {
 
      <Routes>
       <Route path="/" element={<Books/>}/>
-      <Route path="/account" element={<Account/>}/>
+      <Route element={<ProtectedRoute/>}>
+      <Route path="/account" element={<Account token={token} setToken={setToken}/>}/>
+      </Route>
       <Route path="/login" element={<Login token={token} setToken={setToken}/>}/>
       <Route path="/register" element={<Register token={token} setToken={setToken}/>}/>
-      <Route path="/book/:id" element={<SingleBook token={token}/>}/>
+      <Route path="/book/:id" element={<SingleBook token={token} setToken={setToken}/>}/>
       <Route path="*" element={<Books/>}/>
      </Routes>
     </>
