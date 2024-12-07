@@ -1,12 +1,13 @@
 import React, {useEffect, useState} from 'react';
 import axios from 'axios';
 
+
 function Account({token}) {
   const [user, setUser] = useState(null);
   const [books, setBooks] = useState([]);
 
   useEffect(() =>{
-    axios(`${import.meta.env.VITE_API_BASE_URL}/api/users/account`, {
+    axios(`${import.meta.env.VITE_API_BASE_URL}/api/users/me`, {
       headers: {Authorization: `Bearer ${token}`},
     })
     .then((data) => {
@@ -25,7 +26,7 @@ const handleReturnBook = async (id) =>{
     );
     if(result.data.deletedReservation){
       const bookData = await axios(
-        `${import.meta.env.VITE_API_BASE_URL}/api/users/account`, 
+        `${import.meta.env.VITE_API_BASE_URL}/api/users/me`, 
         {
         headers: {Authorization: `Bearer ${token}`},
       }
@@ -38,15 +39,16 @@ const handleReturnBook = async (id) =>{
 };
   return (
     <div>
-      <h2>My Account</h2>
-      <p>{user?.firstname} {user?.lastname}</p>
-      <p>{user?.email}</p>
+      <p>Welcome {user?.firstname} {user?.lastname}</p>
+      <p>This account is attached to email: {user?.email}</p>
+      <h2>Account Page - Your books on loan: </h2>
       {books.map((book) =>(
         <div className='book-card' key={book.id} 
         style={{
           display:"flex", 
           flexDirection:"column", 
-          alignItems:"center"
+          alignItems:"center",
+          
         }}>
         <h2>{book.title}</h2>
         <img src={book.coverimage} alt={book.title}/>

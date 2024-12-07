@@ -17,11 +17,10 @@ function Books() {
   }, []);
 
   const handleBookSearch = (e)=>{
-    const searchResults = books.filter[(book)=>
+    const searchResults = books.filter((book)=>
       book.title.toLowerCase().includes(e.target.value.toLowerCase())
-    ];
-    console.log(searchResults);
-    // setBooksToDisplay(searchResults);
+  );
+    setBooksToDisplay(searchResults);
   };
   return (
     <div>
